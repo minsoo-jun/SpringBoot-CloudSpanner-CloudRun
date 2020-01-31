@@ -25,3 +25,5 @@ java -jar target/spanner-0.0.1-SNAPSHOT.jar
 gcloud builds submit --tag gcr.io/${PROJECT_ID}/spanner-helloworld
 gcloud beta run deploy --image gcr.io/${PROJECT_ID}/spanner-helloworld --set-env-vars="JAVA_TOOL_OPTIONS=-XX:MaxRAM=512m" --concurrency=1 --memory 1G
 ```
+
+![Screen Shot 2020-01-31 at 14 13 52](https://user-images.githubusercontent.com/2956728/73514177-07ea3880-4434-11ea-9b5e-4efc57d1b30b.png)
