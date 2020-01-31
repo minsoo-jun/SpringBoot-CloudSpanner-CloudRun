@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p><a href="/index">Home</a></p>
+    <hr/>
+    <p>Admin Menu</p>
+    <p>Cloud Spanner Drop <a href="/drop">here</a></p>
+    <p>Cloud Spanner Init <a href="/init">here</a></p>
+    <hr/>
+    <p>User Menu</p>
+    <p>Cloud Spanner Add Data <a href="/addSinger">here</a></p>
+    <p>
+        <form action="/removeSinger" method="get">
+            Cloud Spanner Remove Data, SingerID:<input type="text" name="s_id"> <input type="submit" value="go">
+        </form>
+    </p>
+
+<br/>
+<hr>
+    <div th:text="${message}"></div>
+    <hr/>
+<table border="1">
+    <tr bgcolor="#ffcc66">
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Album</th>
+    </tr>
+    <tr th:each="singer: ${singer}">
+        <td th:text="${singer.singerId}" />
+        <td th:text="${singer.firstName}" />
+        <td th:text="${singer.lastName}" />
+        <td>
+            <table border="1">
+                <tr th:each="album: ${singer.albums}">
+                    <td th:text="${album.albumId}" />
+                    <td th:text="${album.albumTitle}" />
+                    <td th:text="${album.marketingBudget}" />
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
